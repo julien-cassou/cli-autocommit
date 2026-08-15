@@ -51,16 +51,6 @@ Un outil CLI pour générer automatiquement des messages de commit conventionnel
 ```bash
 Récupération du git diff des fichiers staged...
 
-Git diff des fichiers staged:
-
-diff --git a/file.txt b/file.txt
-index 1234567..abcdefg 100644
---- a/file.txt
-+++ b/file.txt
-@@ -1,1 +1,1 @@
--ancien contenu
-+nouveau contenu
-
 Génération du message de commit avec Mistral...
 
 Message de commit généré:

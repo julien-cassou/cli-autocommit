@@ -8,9 +8,6 @@ def main():
         print("Aucun fichier staged ou erreur lors de la récupération du diff.")
         return
 
-    print("\nGit diff des fichiers staged:\n")
-    print(diff_output)
-
     print("\nGénération du message de commit avec Mistral...")
     commit_message = generate_commit_message(diff_output)
 

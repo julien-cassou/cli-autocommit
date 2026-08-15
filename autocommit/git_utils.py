@@ -3,6 +3,9 @@ import requests
 import os
 from dotenv import load_dotenv
 
+## Charge les variables d'environnement depuis le .env
+load_dotenv()
+
 def get_git_diff() : 
     """
     Exécute la commande `git diff --staged` et récupère son résultat sous forme 
@@ -43,14 +46,22 @@ def generate_commit_message(diff_output):
 
     # Prompt pour Mistral
     prompt = f"""
-    Génère un message de commit conventionnel en français pour les changements suivants.
-    Utilise le format suivant : type(scope): description.
-    Types possibles : feat, fix, docs, style, refactor, test, chore.
-    Scope : optionnel, décrit la partie du code concernée.
-    Description : courte et descriptive.
+    Génère UNIQUEMENT un message de commit conventionnel en français pour les changements suivants.
+    Respecte strictement ce format : type(scope): description concise
+    - Type : feat, fix, docs, style, refactor, test ou chore
+    - Scope : optionnel, entre parenthèses, décrit la partie concernée
+    - Description : courte phrase décrivant le changement (max 50 mots)
 
+    Exemple de format attendu : 
+    
+    - feat(cli): ajoute génération commit
+    - fix(git): corrige récupération diff
+    - docs: ajoute README
+    
     Changements :
     {diff_output}
+
+    IMPORTANT : Ne retourne QUE le message de commit au format demandé, sans commentaires ni explications supplémentaires et de retour à la ligne.
     """
 
     model = os.getenv("MISTRAL_MODEL")
@@ -64,7 +75,7 @@ def generate_commit_message(diff_output):
             {"role": "user", "content": prompt}
         ],
         "temperature": 0.7,
-        "max_tokens": 100
+        "max_tokens": 500
     }
 
     # Headers pour l'API Mistral
