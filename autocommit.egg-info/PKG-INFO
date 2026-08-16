@@ -1,3 +1,28 @@
+Metadata-Version: 2.4
+Name: autocommit
+Version: 0.1.0
+Summary: Outil CLI pour générer des messages de commit avec Mistral
+Home-page: https://github.com/julien-cassou/autocommit
+Author: Julien Cassou
+Author-email: juliencassou91@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.25.1
+Requires-Dist: python-dotenv>=0.19.0
+Requires-Dist: pytest>=9.1.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # Autocommit avec Mistral
 
 Un outil CLI pour générer automatiquement des messages de commit conventionnels en utilisant l'API Mistral.
@@ -17,28 +42,34 @@ Un outil CLI pour générer automatiquement des messages de commit conventionnel
 ## Installation
 
 1. Clone le dépôt :
-```bash
-git clone https://github.com/julien-cassou/cli-autocommit.git
-cd cli-autocommit
-```
+   ```bash
+   git clone https://github.com/julien-cassou/cli-autocommit.git
+   cd autocommit
+   ```
 
-2. Installe le package :
-```bash
-pip install .
-```
+2. Installe les dépendances :
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Crée un fichier `.env` dans ton **projet utilisateur** :
-```env
-MISTRAL_API_KEY=ta_clé_api
-```
+3. Crée un fichier `.env` à la racine du projet avec ta clé API Mistral :
+   ```env
+   MISTRAL_API_KEY=ta_clé_api_mistral
+   ```
 
 ## Utilisation
 
-```bash
-# Dans ton projet
-git add .
-autocommit
-```
+1. Ajoute tes fichiers à la zone de staging avec `git add` :
+   ```bash
+   git add .
+   ```
+
+2. Exécute le script pour générer un message de commit :
+   ```bash
+   python -m autocommit.cli
+   ```
+
+3. Le script affichera le `git diff` et le message de commit généré par Mistral.
 
 ## Exemple de sortie
 

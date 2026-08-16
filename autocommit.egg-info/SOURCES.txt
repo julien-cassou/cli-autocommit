@@ -1,0 +1,13 @@
+README.md
+setup.py
+autocommit/__init__.py
+autocommit/cli.py
+autocommit/git_utils.py
+autocommit.egg-info/PKG-INFO
+autocommit.egg-info/SOURCES.txt
+autocommit.egg-info/dependency_links.txt
+autocommit.egg-info/entry_points.txt
+autocommit.egg-info/requires.txt
+autocommit.egg-info/top_level.txt
+tests/__init__.py
+tests/test_git_utils.py
