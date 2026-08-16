@@ -11,8 +11,6 @@ Classifier: Operating System :: OS Independent
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 Requires-Dist: requests>=2.25.1
-Requires-Dist: python-dotenv>=0.19.0
-Requires-Dist: pytest>=9.1.1
 Dynamic: author
 Dynamic: author-email
 Dynamic: classifier
@@ -38,38 +36,39 @@ Un outil CLI pour générer automatiquement des messages de commit conventionnel
 - Python 3.14 ou supérieur
 - Git installé et configuré
 - Une clé API Mistral (disponible sur [Mistral AI](https://mistral.ai/))
+- pipx (recommandé pour une installation globale sécurisée)
 
 ## Installation
 
 1. Clone le dépôt :
-   ```bash
-   git clone https://github.com/julien-cassou/cli-autocommit.git
-   cd autocommit
-   ```
+```bash
+git clone https://github.com/julien-cassou/cli-autocommit.git
+cd cli-autocommit
+```
 
-2. Installe les dépendances :
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. Installe le package :
+```bash
+pipx install .
+```
 
-3. Crée un fichier `.env` à la racine du projet avec ta clé API Mistral :
-   ```env
-   MISTRAL_API_KEY=ta_clé_api_mistral
-   ```
+3. Configure ta clé API en l'ajoutant aux variables de ton environnement système. Ouvre ton fichier de profil shell (par exemple ~/.bashrc ou ~/.zshrc) et ajoutes-y cette ligne : 
+```bash
+export MISTRAL_API_KEY=ta_clé_api
+```
+Recharge ensuite ton terminal pour appliquer les changements : 
+```bash
+source ~/.bashrc
+```
 
 ## Utilisation
 
-1. Ajoute tes fichiers à la zone de staging avec `git add` :
-   ```bash
-   git add .
-   ```
+Une fois installé, l'outil est accessible de n'importe où.
 
-2. Exécute le script pour générer un message de commit :
-   ```bash
-   python -m autocommit.cli
-   ```
-
-3. Le script affichera le `git diff` et le message de commit généré par Mistral.
+```bash
+# Dans ton projet
+git add .
+autocommit
+```
 
 ## Exemple de sortie
 

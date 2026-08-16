@@ -15,7 +15,6 @@ setup(
     packages=find_packages(),
     install_requires=[
         "requests>=2.25.1",
-        "python-dotenv>=0.19.0",
     ],
     python_requires=">=3.8",
     entry_points={

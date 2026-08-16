@@ -13,6 +13,7 @@ Un outil CLI pour générer automatiquement des messages de commit conventionnel
 - Python 3.14 ou supérieur
 - Git installé et configuré
 - Une clé API Mistral (disponible sur [Mistral AI](https://mistral.ai/))
+- pipx (recommandé pour une installation globale sécurisée)
 
 ## Installation
 
@@ -24,15 +25,21 @@ cd cli-autocommit
 
 2. Installe le package :
 ```bash
-pip install .
+pipx install .
 ```
 
-3. Crée un fichier `.env` dans ton **projet utilisateur** :
-```env
-MISTRAL_API_KEY=ta_clé_api
+3. Configure ta clé API en l'ajoutant aux variables de ton environnement système. Ouvre ton fichier de profil shell (par exemple ~/.bashrc ou ~/.zshrc) et ajoutes-y cette ligne : 
+```bash
+export MISTRAL_API_KEY=ta_clé_api
+```
+Recharge ensuite ton terminal pour appliquer les changements : 
+```bash
+source ~/.bashrc
 ```
 
 ## Utilisation
+
+Une fois installé, l'outil est accessible de n'importe où.
 
 ```bash
 # Dans ton projet
